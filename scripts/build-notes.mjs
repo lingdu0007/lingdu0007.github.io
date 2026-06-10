@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import crypto from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -8,6 +9,7 @@ const rootDir = path.resolve(__dirname, "..");
 const notesMdDir = path.join(rootDir, "notes-md");
 const notesOutDir = path.join(rootDir, "notes");
 const templatePath = path.join(rootDir, "templates", "note-shell.html");
+const articleCssPath = path.join(rootDir, "notes", "article.css");
 const indexPath = path.join(rootDir, "index.html");
 const notFoundPath = path.join(rootDir, "404.html");
 const sitemapPath = path.join(rootDir, "sitemap.xml");
@@ -243,6 +245,12 @@ async function main() {
     fs.readFile(indexPath, "utf8"),
     fs.readFile(notFoundPath, "utf8"),
   ]);
+  const articleCss = await fs.readFile(articleCssPath, "utf8");
+  const articleCssHash = crypto
+    .createHash("sha1")
+    .update(articleCss)
+    .digest("hex")
+    .slice(0, 10);
 
   const noteFiles = (await fs.readdir(notesMdDir))
     .filter((name) => name.endsWith(".md"))
@@ -286,6 +294,7 @@ async function main() {
       .replaceAll("{{title}}", escapeHtml(note.title))
       .replaceAll("{{description}}", escapeHtml(note.description))
       .replaceAll("{{canonicalUrl}}", `${siteBase}/notes/${note.slug}.html`)
+      .replaceAll("{{articleCssHref}}", `article.css?v=${articleCssHash}`)
       .replaceAll("{{eyebrow}}", escapeHtml(note.eyebrow))
       .replaceAll("{{intro}}", escapeHtml(note.intro))
       .replaceAll("{{date}}", escapeHtml(note.date))

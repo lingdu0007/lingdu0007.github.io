@@ -263,7 +263,7 @@
     }
 
     .hero-copy h1 span {
-      display: inline-block;
+      display: inline;
       color: var(--accent);
       font-style: italic;
     }
@@ -610,7 +610,7 @@
     }
 
     .about-grid {
-      grid-template-columns: 1fr 1.1fr;
+      grid-template-columns: minmax(0, 1.14fr) minmax(0, 0.86fr);
       align-items: start;
     }
 
@@ -632,7 +632,7 @@
     }
 
     .contact-grid {
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: minmax(0, 1.22fr) minmax(0, 0.78fr);
       align-items: end;
       padding-top: 24px;
       border-top: 1px solid var(--line);
@@ -904,8 +904,10 @@
     }
 
     .hero-copy h1 {
-      font-size: clamp(4.9rem, 7.9vw, 7rem);
-      max-width: 11ch;
+      font-size: clamp(3.65rem, 5.6vw, 5rem);
+      line-height: 1.04;
+      max-width: 100%;
+      letter-spacing: -0.02em;
     }
 
     .hero-copy > p {
@@ -942,9 +944,10 @@
     }
 
     .panel-card h2 {
-      font-size: 3rem;
-      line-height: 0.92;
-      max-width: 8.8ch;
+      font-size: clamp(2.05rem, 2.45vw, 2.5rem);
+      line-height: 1.08;
+      max-width: 100%;
+      letter-spacing: -0.015em;
     }
 
     .panel-copy {
@@ -1036,7 +1039,11 @@
     }
 
     .about-quote {
-      font-size: clamp(2.3rem, 4vw, 3.15rem);
+      font-size: clamp(1.82rem, 2.6vw, 2.25rem);
+      line-height: 1.12;
+      max-width: 100%;
+      padding-right: clamp(18px, 2vw, 28px);
+      letter-spacing: -0.01em;
     }
 
     .about-copy p {
@@ -1044,8 +1051,10 @@
     }
 
     .contact-copy h2 {
-      font-size: clamp(2.55rem, 4.2vw, 3.55rem);
-      max-width: 8.5ch;
+      font-size: clamp(2rem, 2.95vw, 2.6rem);
+      line-height: 1.1;
+      max-width: 100%;
+      letter-spacing: -0.012em;
     }
 
     .contact-copy p {
@@ -1067,11 +1076,11 @@
 
     @media (max-width: 1100px) {
       .hero-copy h1 {
-        font-size: 5.2rem;
+        font-size: clamp(3.25rem, 6.7vw, 4.4rem);
       }
 
       .panel-card h2 {
-        font-size: 2.6rem;
+        font-size: 2rem;
       }
 
       .section-head h2 {
@@ -1083,11 +1092,11 @@
       }
 
       .about-quote {
-        font-size: 2.4rem;
+        font-size: 1.82rem;
       }
 
       .contact-copy h2 {
-        font-size: 2.8rem;
+        font-size: 2rem;
       }
     }
 
@@ -1101,9 +1110,8 @@
       }
 
       .hero-copy h1 {
-        max-width: none;
-        font-size: 4rem;
-        line-height: 0.95;
+        font-size: clamp(2.7rem, 10.2vw, 3.15rem);
+        line-height: 1.08;
       }
 
       .hero-copy > p {
@@ -1135,7 +1143,7 @@
       }
 
       .panel-card h2 {
-        font-size: 2.15rem;
+        font-size: 1.64rem;
       }
 
       .section-head h2 {
@@ -1152,11 +1160,13 @@
       }
 
       .about-quote {
-        font-size: 2rem;
+        font-size: 1.52rem;
+        line-height: 1.16;
+        padding-right: 0;
       }
 
       .contact-copy h2 {
-        font-size: 2.25rem;
+        font-size: 1.68rem;
       }
     }
   </style>
@@ -1185,7 +1195,7 @@
       <section class="hero">
         <div class="hero-copy reveal">
           <div class="kicker">个人网站重做 / editorial minimal</div>
-          <h1>把设计、代码与产品感<br /><span>收束成一个系统。</span></h1>
+          <h1>把设计、代码与产品感<span>收束成一个系统。</span></h1>
           <p>
             我偏爱那种一眼安静、但越看越有层次的界面。它们不急着展示全部内容，
             而是先把结构、节奏和判断讲清楚。
