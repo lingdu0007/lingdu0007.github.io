@@ -1,0 +1,138 @@
+<!-- Generated from notes-md/test-note.md by scripts/build-notes.mjs -->
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>测试示例：用 Markdown 驱动一篇正式可发布的 Notes | Ling Du</title>
+  <meta
+    name="description"
+    content="一篇示例笔记，用来验证当前站点的 Markdown 到 HTML 生成链是否正常工作。"
+  />
+  <meta name="author" content="Ling Du" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <link rel="canonical" href="https://lingdu0007.github.io/notes/test-note.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Ling Du" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content="测试示例：用 Markdown 驱动一篇正式可发布的 Notes" />
+  <meta
+    property="og:description"
+    content="一篇示例笔记，用来验证当前站点的 Markdown 到 HTML 生成链是否正常工作。"
+  />
+  <meta property="og:url" content="https://lingdu0007.github.io/notes/test-note.html" />
+  <meta property="og:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="测试示例：用 Markdown 驱动一篇正式可发布的 Notes" />
+  <meta
+    name="twitter:description"
+    content="一篇示例笔记，用来验证当前站点的 Markdown 到 HTML 生成链是否正常工作。"
+  />
+  <meta name="twitter:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="article.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">L</span>
+        <span class="brand-copy">
+          <strong>Ling Du</strong>
+          <span>Independent builder / design + code</span>
+        </span>
+      </a>
+      <div class="top-status">Writing / Notes</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#capabilities">Capabilities</a>
+        <a href="../index.html#notes">Notes</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="article-hero">
+        <div>
+          <div class="eyebrow">Note 04 / Example</div>
+          <h1>测试示例：用 Markdown 驱动一篇正式可发布的 Notes</h1>
+          <p class="article-intro">
+            这是一篇示例笔记，用来验证当前站点已经支持 Markdown 作为写作源文件，再由脚本生成正式的 HTML 发布页。
+          </p>
+        </div>
+
+        <div class="article-meta">
+          <div>Published / 2026</div>
+          <div>Theme / Publishing Workflow</div>
+          <div>Reading Time / 2 min</div>
+        </div>
+      </section>
+
+      <section class="article-content">
+        <article class="article-body">
+          <p>这是一篇专门用于测试的示例笔记。它的目标不是提供新的观点，而是确认当前这套个人网站已经支持用 Markdown 作为内容源文件，再统一生成正式的 HTML 发布页。</p>
+          <h2>为什么要做这一步</h2>
+          <p>如果每一篇笔记都手写完整 HTML，后续维护成本会越来越高。你不仅要写正文，还要同步更新标题、描述、相关推荐、首页卡片和 404 页面里的继续阅读入口。</p>
+          <p>而 Markdown 作为源文件时，内容层就会变得更轻：</p>
+          <ul>
+            <li>文章正文只关心写作本身</li>
+            <li>页面壳子继续复用现有设计</li>
+            <li>发布时统一生成 HTML</li>
+            <li>首页和 404 的文章入口可以自动更新</li>
+          </ul>
+          <h2>这篇示例会验证什么</h2>
+          <p>这篇笔记一旦被加入 <code>notes-md/</code>，构建脚本就应该同时完成几件事：</p>
+          <ol>
+            <li>生成对应的 <code>notes/test-note.html</code></li>
+            <li>把它加入首页的 Notes 卡片区</li>
+            <li>把它加入 <code>404.html</code> 的继续阅读入口</li>
+            <li>把它加入 <code>sitemap.xml</code></li>
+          </ol>
+          <p>如果这些都发生了，就说明当前内容链已经具备继续扩展的基础。</p>
+          <h2>之后怎么用</h2>
+          <p>以后你只需要继续在 <code>notes-md/</code> 里新增 Markdown 文件，按 frontmatter 规范填写信息，再运行一次生成脚本，就可以得到完整的发布产物。</p>
+          <p>对你来说，Markdown 是写作入口；对站点来说，HTML 仍然是最终发布格式。这两者分开之后，内容和设计都更容易继续维护。</p>
+        </article>
+
+        <aside>
+          <div class="article-callout">
+            <h3>这篇在说什么</h3>
+            <p>
+              这篇的目的不是内容本身，而是确认 Markdown、模板、首页卡片和 404 入口都能一起联动更新。
+            </p>
+          </div>
+
+          <nav class="article-nav" aria-label="Related notes">
+            <span class="article-nav-label">继续阅读</span>
+            <a class="article-nav-link" href="personal-site-is-not-a-resume.html">
+              <strong>个人站不应该像“简历页面”，也不该像“产品促销页”</strong>
+              <span>Note 01 / Interface</span>
+            </a>
+            <a class="article-nav-link" href="quiet-before-busy.html">
+              <strong>当信息变复杂时，界面最先要做的不是更热闹，而是更安静</strong>
+              <span>Note 02 / Systems</span>
+            </a>
+            <a class="article-nav-link" href="../index.html#notes">
+              <strong>返回首页的 Notes 列表</strong>
+              <span>Back to index</span>
+            </a>
+          </nav>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="article-footer">
+      Ling Du / Writing / Notes
+    </footer>
+  </div>
+</body>
+</html>
+
