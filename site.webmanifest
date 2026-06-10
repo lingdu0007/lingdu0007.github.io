@@ -1,0 +1,18 @@
+{
+  "name": "Ling Du",
+  "short_name": "Ling Du",
+  "description": "Ling Du 的个人网站，展示作品、能力、写作与联系入口。",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f7f7f4",
+  "theme_color": "#f7f7f4",
+  "icons": [
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

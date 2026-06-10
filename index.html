@@ -1,7 +1,1189 @@
-<p>Hello 大家好</p>
-<p>我是lingdu，这是我的个人网站。 </p>
-<p>很高兴你来到这里, 你可以在以下的网站找到我</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ling Du | Product, Design & Code</title>
+  <meta
+    name="description"
+    content="Ling Du 的个人网站，采用 editorial minimal 与 Swiss grid 混合风格，展示作品、能力、写作与联系入口。"
+  />
+  <meta name="author" content="Ling Du" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <meta name="color-scheme" content="light" />
+  <link rel="canonical" href="https://lingdu0007.github.io/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ling Du" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content="Ling Du | Product, Design & Code" />
+  <meta
+    property="og:description"
+    content="以 editorial minimal 与 Swiss grid 风格呈现的个人网站，展示作品、能力、写作与联系入口。"
+  />
+  <meta property="og:url" content="https://lingdu0007.github.io/" />
+  <meta property="og:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <meta property="og:image:alt" content="Ling Du 个人网站分享预览图" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ling Du | Product, Design & Code" />
+  <meta
+    name="twitter:description"
+    content="以 editorial minimal 与 Swiss grid 风格呈现的个人网站，展示作品、能力、写作与联系入口。"
+  />
+  <meta name="twitter:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    :root {
+      --paper: #f7f7f4;
+      --paper-deep: #efefeb;
+      --ink: #181512;
+      --muted: #60584d;
+      --line: rgba(24, 21, 18, 0.14);
+      --accent: #a06642;
+      --accent-soft: rgba(160, 102, 66, 0.12);
+      --moss: #67715f;
+      --shadow: 0 18px 48px rgba(24, 21, 18, 0.08);
+      --radius: 12px;
+      --max-width: 1280px;
+      --gutter: clamp(20px, 3vw, 40px);
+      --section-space: clamp(72px, 11vw, 132px);
+      --title: "Cormorant Garamond", serif;
+      --body: "Space Grotesk", sans-serif;
+      --mono: "IBM Plex Mono", monospace;
+    }
 
-<ul>
+    * {
+      box-sizing: border-box;
+    }
 
-</ul>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: var(--body);
+      background: linear-gradient(180deg, #fbfbfa 0%, var(--paper) 100%);
+      min-height: 100vh;
+      line-height: 1.45;
+      text-rendering: optimizeLegibility;
+    }
+
+    body::before,
+    body::after {
+      display: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .page-shell {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 28px), var(--max-width));
+      margin: 0 auto;
+      padding-bottom: 56px;
+    }
+
+    .site-header {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 16px 24px;
+      align-items: center;
+      padding: 22px 0 10px;
+      border-bottom: 1px solid var(--line);
+      position: sticky;
+      top: 0;
+      background: rgba(247, 247, 244, 0.96);
+      z-index: 8;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      font-family: var(--title);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-copy strong {
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .brand-copy span,
+    .top-status,
+    .kicker,
+    .eyebrow,
+    .meta-chip,
+    .work-meta,
+    .note-meta,
+    .section-index,
+    .contact-link span,
+    .footer-copy,
+    .panel-label,
+    .capability-tag,
+    .hero-caption,
+    .work-outcome {
+      font-family: var(--mono);
+      letter-spacing: 0.02em;
+      font-size: 0.79rem;
+      text-transform: uppercase;
+    }
+
+    .brand-copy span,
+    .top-status,
+    .hero-copy p,
+    .hero-caption,
+    .section-intro,
+    .work-summary,
+    .capability-card p,
+    .note-card p,
+    .about-copy p,
+    .contact-copy p,
+    .footer-copy,
+    .panel-copy,
+    .panel-list li {
+      color: var(--muted);
+    }
+
+    .top-status {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+    }
+
+    .site-nav {
+      display: flex;
+      gap: 18px;
+      font-size: 0.92rem;
+      justify-content: flex-end;
+    }
+
+    .site-nav a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--ink);
+      transform-origin: right;
+      transform: scaleX(0);
+      transition: transform 180ms ease;
+    }
+
+    .site-nav a:hover::after,
+    .site-nav a:focus-visible::after {
+      transform-origin: left;
+      transform: scaleX(1);
+    }
+
+    main {
+      display: block;
+    }
+
+    section {
+      padding: var(--section-space) 0 0;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: clamp(26px, 4vw, 56px);
+      align-items: start;
+      min-height: calc(100vh - 138px);
+      padding-top: clamp(34px, 5vw, 64px);
+    }
+
+    .kicker,
+    .eyebrow {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .kicker::before,
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-copy h1,
+    .section-head h2,
+    .about-quote,
+    .contact-copy h2 {
+      font-family: var(--title);
+      font-weight: 600;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      margin: 0;
+    }
+
+    .hero-copy h1 {
+      font-size: 6.8rem;
+      max-width: 10ch;
+    }
+
+    .hero-copy h1 span {
+      display: inline-block;
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero-copy > p {
+      font-size: 1.12rem;
+      max-width: 46ch;
+      margin: 28px 0 0;
+    }
+
+    .hero-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .meta-chip {
+      flex: 1 1 240px;
+      min-width: 0;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--ink);
+      line-height: 1.35;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background-color 180ms ease;
+    }
+
+    .button-link.primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .button-link.secondary {
+      border-color: var(--line);
+      background: #fff;
+    }
+
+    .button-link:hover,
+    .button-link:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .hero-caption {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 18px;
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .hero-panel {
+      padding: 18px;
+      background: #fff;
+      border: 1px solid rgba(24, 21, 18, 0.08);
+      border-radius: calc(var(--radius) + 4px);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-panel::before {
+      display: none;
+    }
+
+    .panel-label {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .panel-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+      padding: 24px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel-card::before {
+      display: none;
+    }
+
+    .panel-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .panel-head strong {
+      font-size: 1.08rem;
+    }
+
+    .panel-head span {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      text-transform: uppercase;
+    }
+
+    .panel-card h2 {
+      font-family: var(--title);
+      font-weight: 600;
+      font-size: 3.25rem;
+      line-height: 0.94;
+      letter-spacing: -0.03em;
+      margin: 20px 0 18px;
+      max-width: 7ch;
+    }
+
+    .panel-copy {
+      max-width: 34ch;
+      margin: 0;
+    }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .panel-cell {
+      min-height: 110px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fff;
+    }
+
+    .panel-cell strong {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .panel-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0;
+      display: grid;
+      gap: 14px;
+    }
+
+    .panel-list li {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .panel-list strong {
+      font-family: var(--mono);
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 72px 1.2fr 0.8fr;
+      gap: 20px;
+      align-items: end;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-index {
+      color: var(--accent);
+      align-self: start;
+      padding-top: 12px;
+    }
+
+    .section-head h2 {
+      font-size: 3.15rem;
+    }
+
+    .section-intro {
+      margin: 0;
+      max-width: 32ch;
+      font-size: 0.98rem;
+      justify-self: end;
+    }
+
+    .work-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .work-row {
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr) minmax(0, 1.2fr) 180px;
+      gap: 20px;
+      align-items: start;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+      transition: transform 180ms ease, background-color 180ms ease;
+    }
+
+    .work-row:hover {
+      transform: translateX(4px);
+      background: transparent;
+    }
+
+    .work-meta {
+      color: var(--accent);
+      padding-top: 8px;
+    }
+
+    .work-title-group h3 {
+      margin: 0;
+      font-size: 2rem;
+      font-family: var(--title);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .work-role {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .work-summary {
+      margin: 0;
+      max-width: 42ch;
+      font-size: 1rem;
+    }
+
+    .work-outcome {
+      color: var(--moss);
+      line-height: 1.6;
+      text-align: right;
+      padding-top: 6px;
+    }
+
+    .capability-grid,
+    .notes-grid,
+    .about-grid,
+    .contact-grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .capability-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .capability-card,
+    .note-card,
+    .contact-card {
+      padding: 22px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .capability-card {
+      min-height: 220px;
+      display: grid;
+      align-content: space-between;
+      background: #fff;
+    }
+
+    .capability-tag {
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .capability-card h3,
+    .note-card h3 {
+      margin: 0 0 12px;
+      font-size: 1.35rem;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .capability-card p,
+    .note-card p,
+    .contact-card p {
+      margin: 0;
+      font-size: 0.96rem;
+    }
+
+    .notes-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .note-card {
+      position: relative;
+      min-height: 228px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .note-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(160, 102, 66, 0.34);
+    }
+
+    .note-meta {
+      color: var(--accent);
+      display: block;
+      margin-bottom: 24px;
+    }
+
+    .note-arrow {
+      margin-top: 28px;
+      font-family: var(--mono);
+      color: var(--moss);
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr 1.1fr;
+      align-items: start;
+    }
+
+    .about-quote {
+      font-size: 3rem;
+      padding-right: 28px;
+      max-width: 11ch;
+    }
+
+    .about-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .about-copy p {
+      margin: 0;
+      font-size: 1.05rem;
+      max-width: 52ch;
+    }
+
+    .contact-grid {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: end;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-copy h2 {
+      font-size: 3.6rem;
+      max-width: 8ch;
+    }
+
+    .contact-copy p {
+      margin: 18px 0 0;
+      max-width: 40ch;
+      font-size: 1rem;
+    }
+
+    .contact-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      gap: 18px;
+      transition: transform 180ms ease;
+    }
+
+    .contact-link:hover {
+      transform: translateX(4px);
+    }
+
+    .contact-link strong {
+      font-size: 1.02rem;
+    }
+
+    .footer {
+      margin-top: 56px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .footer-copy {
+      max-width: 54ch;
+      margin: 0;
+    }
+
+    .footer-anchors {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition:
+        opacity 560ms ease,
+        transform 560ms ease;
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .reveal,
+      .site-nav a::after,
+      .button-link,
+      .work-row,
+      .note-card,
+      .contact-link {
+        transition: none;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero,
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head,
+      .work-row {
+        grid-template-columns: 1fr;
+      }
+
+      .section-index {
+        padding-top: 0;
+      }
+
+      .section-intro,
+      .work-outcome {
+        justify-self: start;
+        text-align: left;
+      }
+
+      .work-meta {
+        padding-top: 0;
+      }
+
+      .capability-grid,
+      .notes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .site-header {
+        grid-template-columns: 1fr;
+      }
+
+      .site-nav {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .hero-copy h1 {
+        font-size: 5.2rem;
+      }
+
+      .panel-card h2 {
+        font-size: 2.6rem;
+      }
+
+      .section-head h2 {
+        font-size: 2.6rem;
+      }
+
+      .work-title-group h3 {
+        font-size: 1.8rem;
+      }
+
+      .about-quote {
+        font-size: 2.4rem;
+      }
+
+      .contact-copy h2 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-copy h1 {
+        max-width: none;
+        font-size: 4rem;
+      }
+
+      .hero-copy > p {
+        font-size: 1rem;
+      }
+
+      .hero-caption {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-grid,
+      .capability-grid,
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-list li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-anchors {
+        justify-content: flex-start;
+      }
+
+      .panel-card h2 {
+        font-size: 2.15rem;
+      }
+
+      .section-head h2 {
+        font-size: 2.1rem;
+      }
+
+      .work-title-group h3 {
+        font-size: 1.5rem;
+      }
+
+      .capability-card h3,
+      .note-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .about-quote {
+        font-size: 2rem;
+      }
+
+      .contact-copy h2 {
+        font-size: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#top">
+        <span class="brand-mark">L</span>
+        <span class="brand-copy">
+          <strong>Ling Du</strong>
+          <span>Independent builder / design + code</span>
+        </span>
+      </a>
+      <div class="top-status">开放合作</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="#work">Work</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#notes">Notes</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <div class="kicker">Independent builder for product, design and code</div>
+          <h1>把设计、代码和产品感 <span>连成一个系统。</span></h1>
+          <p>
+            我偏爱那种不吵闹、但一进入就知道是谁做的界面。它们清楚、克制、有节奏，
+            能把复杂的信息变成可以被理解、被决策、被记住的体验。
+          </p>
+
+          <div class="hero-meta-row" aria-label="Quick facts">
+            <div class="meta-chip">当前关注 / AI 工作流</div>
+            <div class="meta-chip">所在地 / 待填写</div>
+            <div class="meta-chip">合作方向 / 产品设计 · 前端工程 · AI 工作流 · 品牌叙事</div>
+          </div>
+
+          <div class="hero-actions">
+            <a class="button-link primary" href="#work">看精选项目</a>
+            <a class="button-link secondary" href="#contact">开始交流</a>
+          </div>
+
+          <div class="hero-caption">
+            <span>当前重点</span>
+            <div>
+              正在把个人主页做成一个更像作品索引而不是履历表的地方。
+              它应该既能让第一次访问的人快速理解你，也能让懂行的人看到你的判断力。
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal">
+          <div class="panel-label">精选预览 / 2026</div>
+          <div class="panel-card">
+            <div class="panel-head">
+              <strong>重点案例</strong>
+              <span>01 / Flow Atlas</span>
+            </div>
+            <h2>让活跃系统在高密度状态里保持安静。</h2>
+            <p class="panel-copy">
+              一个给 AI 工作流和复杂产品做“降噪”的实践：让信息结构更冷静，让动作更明确，
+              让界面在复杂场景里仍然保有秩序感。
+            </p>
+
+            <div class="panel-grid">
+              <div class="panel-cell">
+                <span class="panel-label">角色</span>
+                <strong>端到端</strong>
+              </div>
+              <div class="panel-cell">
+                <span class="panel-label">焦点</span>
+                <strong>设计系统</strong>
+              </div>
+              <div class="panel-cell">
+                <span class="panel-label">结果</span>
+                <strong>阅读路径</strong>
+              </div>
+            </div>
+
+            <ul class="panel-list">
+              <li>
+                <strong>2026</strong>
+                <span>把 onboarding 变成一个有节奏的阅读路径，而不是一堆说明和按钮。</span>
+              </li>
+              <li>
+                <strong>UI</strong>
+                <span>用杂志感的排版语言处理技术信息，让严肃内容也有辨识度。</span>
+              </li>
+              <li>
+                <strong>Build</strong>
+                <span>设计和前端同时推进，避免“概念很好看、实现像另一件事”。</span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+      </section>
+
+      <section id="work">
+        <div class="section-head reveal">
+          <div class="section-index">01</div>
+          <h2>Selected Work</h2>
+          <p class="section-intro">
+            不是把所有项目都堆上来，而是挑出最能说明方法、取舍与审美判断的几件事。
+          </p>
+        </div>
+
+        <div class="work-list">
+          <article class="work-row reveal">
+            <div class="work-meta">2026</div>
+            <div class="work-title-group">
+              <h3>Flow Atlas</h3>
+              <div class="work-role">产品设计 / 前端 / AI 工作流</div>
+            </div>
+            <p class="work-summary">
+              为 AI 工作流设计一个更安静、更可信的操作界面。重点不是“炫技感”，而是让用户在高密度状态下依然能快速判断下一步。
+            </p>
+            <div class="work-outcome">把第一次理解成本从“需要解释”压缩到“打开就能进入状态”</div>
+          </article>
+
+          <article class="work-row reveal">
+            <div class="work-meta">2025</div>
+            <div class="work-title-group">
+              <h3>Signal Notes</h3>
+              <div class="work-role">品牌系统 / 内容结构</div>
+            </div>
+            <p class="work-summary">
+              为一个内容与产品交叉的个人品牌重做信息结构：把写作、产品实验和合作入口重新编排成更像 editorial index 的浏览体验。
+            </p>
+            <div class="work-outcome">让作品、观点和联系入口不再互相抢戏，而是相互抬高</div>
+          </article>
+
+          <article class="work-row reveal">
+            <div class="work-meta">2024</div>
+            <div class="work-title-group">
+              <h3>Prompt Desk</h3>
+              <div class="work-role">界面方向 / 设计工程</div>
+            </div>
+            <p class="work-summary">
+              一个面向复杂输入场景的 prompt workspace 原型。通过分栏、层级和轻动效，减少用户在“想法很多”时的界面摩擦。
+            </p>
+            <div class="work-outcome">用更克制的结构承接复杂内容，而不是靠组件数量制造存在感</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="capabilities">
+        <div class="section-head reveal">
+          <div class="section-index">02</div>
+          <h2>Capabilities</h2>
+          <p class="section-intro">
+            我最擅长的是跨边界工作：既能把方向定清楚，也能把它真正做出来。
+          </p>
+        </div>
+
+        <div class="capability-grid">
+          <article class="capability-card reveal">
+            <div>
+              <div class="capability-tag">A / Product design</div>
+              <h3>把抽象方向变成清楚的页面结构</h3>
+            </div>
+            <p>
+              擅长为 0 到 1 的产品整理首屏、叙事顺序、信息密度和关键动作，让产品意图一眼可读。
+            </p>
+          </article>
+
+          <article class="capability-card reveal">
+            <div>
+              <div class="capability-tag">B / Front-end</div>
+              <h3>让设计不是静态图，而是可用界面</h3>
+            </div>
+            <p>
+              我会直接把版式、细节和动效落进代码里，避免设计与实现出现“像两个不同的人做的”断层。
+            </p>
+          </article>
+
+          <article class="capability-card reveal">
+            <div>
+              <div class="capability-tag">C / AI workflow</div>
+              <h3>处理复杂系统时优先建立秩序感</h3>
+            </div>
+            <p>
+              面对 agent、automation、workspace 这类复杂信息时，我更关注理解成本、决策路径和可信感。
+            </p>
+          </article>
+
+          <article class="capability-card reveal">
+            <div>
+              <div class="capability-tag">D / Brand story</div>
+              <h3>让品牌气质和功能逻辑站在同一边</h3>
+            </div>
+            <p>
+              比起做“看起来很品牌”的装饰，我更在意语气、排版、节奏和系统细节如何一起工作。
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="notes">
+        <div class="section-head reveal">
+          <div class="section-index">03</div>
+          <h2>Writing / Notes</h2>
+          <p class="section-intro">
+            我常写一些偏方法论和判断题的短文，通常和产品、界面、系统感有关。
+          </p>
+        </div>
+
+        <div class="notes-grid">
+          <article class="note-card reveal">
+            <span class="note-meta">Note 01 / Interface</span>
+            <h3>个人站不应该像“简历页面”，也不该像“产品促销页”</h3>
+            <p>
+              它更像一个经过编辑的索引：你是谁、做过什么、怎么看问题，以及别人为什么愿意继续点下去。
+            </p>
+            <div class="note-arrow">阅读全文 →</div>
+          </article>
+
+          <article class="note-card reveal">
+            <span class="note-meta">Note 02 / Systems</span>
+            <h3>当信息变复杂时，界面最先要做的不是更热闹，而是更安静</h3>
+            <p>
+              真正可靠的体验往往来自层级、留白、命名和动作克制，而不是多一层效果或多一个模块。
+            </p>
+            <div class="note-arrow">阅读全文 →</div>
+          </article>
+
+          <article class="note-card reveal">
+            <span class="note-meta">Note 03 / Process</span>
+            <h3>最好的设计工程协作，不是传递稿子，而是共享判断</h3>
+            <p>
+              当设计和实现都服务同一个目标时，很多本来看似“妥协”的事情会自然消失。
+            </p>
+            <div class="note-arrow">阅读全文 →</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="section-head reveal">
+          <div class="section-index">04</div>
+          <h2>About</h2>
+          <p class="section-intro">
+            我喜欢做那些介于设计、代码和产品之间的工作，因为那里最容易真正塑造体验。
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-quote reveal">我在意的不是“做得像不像趋势”，而是它到底像不像你。</div>
+          <div class="about-copy reveal">
+            <p>
+              我通常从结构开始：先判断页面到底要让人理解什么、感受到什么，再决定该如何说、如何排、如何动。
+            </p>
+            <p>
+              这也是为什么我会同时关心文案语气、栅格、间距、组件状态和最终前端实现。对我来说，
+              它们不属于不同工种，而是属于同一个体验系统。
+            </p>
+            <p>
+              如果你也希望个人品牌、产品主页或复杂工具界面能更清楚、更有辨识度，我们大概率会聊得来。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <div class="contact-grid reveal">
+          <div class="contact-copy">
+            <div class="eyebrow">05 / Contact</div>
+            <h2>如果你想做一件清楚、克制、但有记忆点的东西。</h2>
+            <p>
+              可以从一个简单的 brief 开始。我尤其适合参与首页方向、设计系统基调、个人品牌站点、
+              以及 AI 产品与工作流工具的界面设计。
+            </p>
+          </div>
+
+          <div class="contact-stack" aria-label="Contact channels">
+            <!-- TODO: 上线前把下面的占位项替换成真实联系信息与外链。 -->
+            <div class="contact-link">
+              <strong>待填写邮箱</strong>
+              <span>Email</span>
+            </div>
+            <div class="contact-link">
+              <strong>待填写用户名</strong>
+              <span>GitHub</span>
+            </div>
+            <div class="contact-link">
+              <strong>待填写用户名</strong>
+              <span>X</span>
+            </div>
+            <div class="contact-link">
+              <strong>待填写账号</strong>
+              <span>小红书</span>
+            </div>
+            <div class="contact-link">
+              <strong>待填写账号</strong>
+              <span>即刻</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer-copy">
+        Ling Du / Independent builder for product, design and code.
+      </p>
+      <div class="footer-anchors">
+        <a href="#work">Work</a>
+        <a href="#notes">Notes</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    const items = document.querySelectorAll(".reveal");
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.18, rootMargin: "0px 0px -36px 0px" }
+      );
+
+      items.forEach((item) => observer.observe(item));
+    } else {
+      items.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+</body>
+</html>
