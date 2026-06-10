@@ -5,86 +5,575 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>页面未找到 | Ling Du</title>
   <meta name="robots" content="noindex" />
-  <meta http-equiv="refresh" content="4; url=/" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <meta name="color-scheme" content="light" />
+  <meta http-equiv="refresh" content="8; url=index.html" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
   <style>
     :root {
       --paper: #f7f7f4;
+      --paper-deep: #efefeb;
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: #fffdfa;
       --ink: #181512;
       --muted: #60584d;
       --line: rgba(24, 21, 18, 0.14);
+      --line-strong: rgba(24, 21, 18, 0.22);
       --accent: #a06642;
+      --accent-soft: rgba(160, 102, 66, 0.1);
+      --moss: #67715f;
+      --shadow: 0 20px 56px rgba(24, 21, 18, 0.08);
+      --radius: 18px;
+      --max-width: 1240px;
       --title: "Cormorant Garamond", serif;
       --body: "Space Grotesk", sans-serif;
       --mono: "IBM Plex Mono", monospace;
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     * {
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: linear-gradient(180deg, #fbfbfa 0%, var(--paper) 100%);
       color: var(--ink);
       font-family: var(--body);
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      background:
+        linear-gradient(180deg, #fbfbfa 0%, #f3f1eb 52%, var(--paper) 100%);
     }
 
-    .card {
-      width: min(100%, 720px);
-      padding: 32px;
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: #fff;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    .eyebrow {
-      margin: 0 0 18px;
-      color: var(--accent);
-      font: 500 0.78rem/1.2 var(--mono);
+    .page-shell {
+      width: min(calc(100% - 40px), var(--max-width));
+      min-height: 100vh;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .site-header {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      gap: 16px 24px;
+      align-items: center;
+      padding: 22px 0 12px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .brand-mark {
+      font-family: var(--title);
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .brand-copy strong {
+      font-size: 0.98rem;
+      font-weight: 700;
+    }
+
+    .brand-copy span,
+    .top-status,
+    .eyebrow,
+    .detail-label,
+    .entry-meta,
+    .page-footer {
+      font-family: var(--mono);
+      font-size: 0.78rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
 
-    h1 {
+    .brand-copy span,
+    .top-status,
+    .lede,
+    .detail-copy,
+    .entry-card p,
+    .page-footer {
+      color: var(--muted);
+    }
+
+    .top-status {
+      padding: 9px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .site-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 18px;
+      font-size: 0.92rem;
+    }
+
+    .site-nav a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .site-nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--ink);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 200ms var(--ease-out);
+    }
+
+    .site-nav a:hover::after,
+    .site-nav a:focus-visible::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .brand:focus-visible,
+    .site-nav a:focus-visible,
+    .button-link:focus-visible,
+    .entry-card:focus-visible {
+      outline: 2px solid rgba(160, 102, 66, 0.35);
+      outline-offset: 4px;
+    }
+
+    .not-found-layout {
+      flex: 1;
+      display: grid;
+      grid-template-columns: minmax(280px, 0.85fr) minmax(0, 1fr);
+      gap: clamp(28px, 5vw, 72px);
+      align-items: start;
+      padding: clamp(56px, 10vh, 96px) 0 64px;
+    }
+
+    .status-rail,
+    .copy-panel,
+    .entry-card {
+      border: 1px solid var(--line);
+      background: var(--surface-strong);
+      box-shadow: var(--shadow);
+    }
+
+    .status-rail {
+      min-height: 100%;
+      border-radius: 26px;
+      padding: clamp(26px, 3vw, 36px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .status-rail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(160, 102, 66, 0.08) 100%);
+      pointer-events: none;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
       margin: 0;
-      font: 600 clamp(2.8rem, 10vw, 4.8rem)/0.95 var(--title);
+      color: var(--accent);
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    .status-code {
+      margin: 18px 0 0;
+      font-family: var(--title);
+      font-size: clamp(6.8rem, 16vw, 11rem);
+      line-height: 0.84;
+      letter-spacing: -0.06em;
+    }
+
+    .status-note {
+      margin: 18px 0 0;
+      max-width: 18ch;
+      font-size: 1rem;
+      color: var(--muted);
+      text-wrap: pretty;
+    }
+
+    .status-detail {
+      display: grid;
+      gap: 18px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      position: relative;
+      z-index: 1;
+    }
+
+    .detail-item {
+      display: grid;
+      gap: 6px;
+    }
+
+    .detail-copy {
+      margin: 0;
+      max-width: 30ch;
+      font-size: 0.96rem;
+      line-height: 1.65;
+    }
+
+    .copy-panel {
+      border-radius: 30px;
+      padding: clamp(28px, 4vw, 48px);
+      display: grid;
+      gap: 32px;
+    }
+
+    .copy-panel h1 {
+      margin: 18px 0 0;
+      max-width: 9ch;
+      font-family: var(--title);
+      font-weight: 600;
+      font-size: clamp(3.6rem, 8vw, 6.2rem);
+      line-height: 0.92;
+      letter-spacing: -0.05em;
+      text-wrap: balance;
+    }
+
+    .lede {
+      margin: 24px 0 0;
+      max-width: 42ch;
+      font-size: clamp(1.05rem, 0.36vw + 1rem, 1.18rem);
+      line-height: 1.82;
+      text-wrap: pretty;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      transition:
+        transform 180ms var(--ease-out),
+        background-color 180ms var(--ease-out),
+        border-color 180ms var(--ease-out);
+    }
+
+    .button-link:hover,
+    .button-link:focus-visible {
+      transform: translateY(-2px);
+    }
+
+    .button-link.primary {
+      background: var(--ink);
+      color: var(--paper);
+    }
+
+    .button-link.secondary {
+      background: #fff;
+      border-color: var(--line);
+    }
+
+    .entry-group {
+      display: grid;
+      gap: 18px;
+    }
+
+    .entry-header {
+      display: grid;
+      gap: 10px;
+      padding-top: 8px;
+      border-top: 1px solid var(--line);
+    }
+
+    .entry-header h2 {
+      margin: 0;
+      font-family: var(--title);
+      font-weight: 600;
+      font-size: clamp(2rem, 3.6vw, 2.8rem);
+      line-height: 0.96;
       letter-spacing: -0.04em;
     }
 
-    p {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1rem;
-      line-height: 1.6;
-      max-width: 40ch;
+    .entry-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
-    a {
-      display: inline-flex;
-      align-items: center;
-      margin-top: 24px;
-      padding: 12px 18px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      color: inherit;
-      text-decoration: none;
+    .entry-card {
+      border-radius: 20px;
+      padding: 20px 18px 18px;
+      display: grid;
+      gap: 12px;
+      transition:
+        transform 180ms var(--ease-out),
+        border-color 180ms var(--ease-out),
+        background-color 180ms var(--ease-out);
+    }
+
+    .entry-card:hover,
+    .entry-card:focus-visible {
+      transform: translateY(-3px);
+      border-color: rgba(160, 102, 66, 0.32);
+      background: #fff;
+    }
+
+    .entry-meta {
+      color: var(--moss);
+    }
+
+    .entry-card strong {
+      font-size: 1rem;
+      line-height: 1.4;
+      text-wrap: pretty;
+    }
+
+    .entry-card p {
+      margin: 0;
+      font-size: 0.95rem;
+      line-height: 1.68;
+    }
+
+    .page-footer {
+      margin-top: auto;
+      padding: 18px 0 30px;
+      border-top: 1px solid var(--line);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 1024px) {
+      .site-header {
+        grid-template-columns: 1fr auto;
+      }
+
+      .site-nav {
+        grid-column: 1 / -1;
+        justify-content: flex-start;
+        padding-top: 4px;
+      }
+
+      .not-found-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .status-note {
+        max-width: 26ch;
+      }
+
+      .copy-panel h1 {
+        max-width: 10ch;
+      }
+
+      .entry-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: min(calc(100% - 28px), var(--max-width));
+      }
+
+      .site-header {
+        grid-template-columns: 1fr;
+      }
+
+      .top-status {
+        justify-self: start;
+      }
+
+      .site-nav {
+        gap: 14px;
+        font-size: 0.88rem;
+      }
+
+      .status-rail,
+      .copy-panel {
+        border-radius: 22px;
+      }
+
+      .copy-panel,
+      .status-rail {
+        padding: 24px 20px;
+      }
+
+      .copy-panel h1 {
+        font-size: clamp(3rem, 14vw, 4.6rem);
+      }
+
+      .actions {
+        flex-direction: column;
+      }
+
+      .button-link {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="card">
-    <p class="eyebrow">404 / Not Found</p>
-    <h1>这个页面不存在。</h1>
-    <p>
-      你访问的地址可能已经变更，或者这个链接本来就不属于当前站点。
-      4 秒后会自动返回首页，也可以直接点下面的按钮。
-    </p>
-    <a href="/">返回首页</a>
-  </main>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="返回 Ling Du 首页">
+        <span class="brand-mark">LD</span>
+        <span class="brand-copy">
+          <strong>Ling Du</strong>
+          <span>Product, Design &amp; Code</span>
+        </span>
+      </a>
+      <div class="top-status">GitHub Pages 静态站</div>
+      <nav class="site-nav" aria-label="站点导航">
+        <a href="index.html#work">精选项目</a>
+        <a href="index.html#notes">笔记</a>
+        <a href="index.html#contact">联系</a>
+      </nav>
+    </header>
+
+    <main class="not-found-layout">
+      <section class="status-rail" aria-labelledby="status-code">
+        <div>
+          <p class="eyebrow">404 / Not Found</p>
+          <p class="status-code" id="status-code">404</p>
+          <p class="status-note">你请求的地址没有落在这次发布出来的站点路径里。</p>
+        </div>
+        <div class="status-detail">
+          <div class="detail-item">
+            <span class="detail-label">自动返回</span>
+            <p class="detail-copy">页面会在 <span id="countdown" aria-live="polite">8</span> 秒后自动跳回首页。</p>
+          </div>
+          <div class="detail-item">
+            <span class="detail-label">建议入口</span>
+            <p class="detail-copy">如果你是从旧书签或历史链接进来，建议从首页或 Notes 重新进入。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="copy-panel" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">恢复导航</p>
+          <h1 id="page-title">这个页面不存在，但站点还在。</h1>
+          <p class="lede">
+            链接可能已经失效、页面路径已经调整，或者这个地址从来不属于当前版本。
+            你可以直接回到首页继续浏览，也可以跳到 Notes，沿着现有内容重新开始。
+          </p>
+        </div>
+
+        <div class="actions" aria-label="主要入口">
+          <a class="button-link primary" href="index.html">返回首页</a>
+          <a class="button-link secondary" href="index.html#notes">查看 Notes</a>
+        </div>
+
+        <section class="entry-group" aria-labelledby="continue-reading">
+          <div class="entry-header">
+            <p class="eyebrow">继续阅读</p>
+            <h2 id="continue-reading">或者直接回到正在写的东西里。</h2>
+          </div>
+          <div class="entry-grid">
+            <a class="entry-card" href="notes/personal-site-is-not-a-resume.html">
+              <span class="entry-meta">Notes 01</span>
+              <strong>个人站不应该像“简历页面”，也不该像“产品促销页”</strong>
+              <p>从“个人网站不该只是履历展开”这一篇重新进入站点的写作线索。</p>
+            </a>
+            <a class="entry-card" href="notes/quiet-before-busy.html">
+              <span class="entry-meta">Notes 02</span>
+              <strong>当信息变复杂时，界面最先要做的不是更热闹，而是更安静</strong>
+              <p>回到节奏、准备与工作密度之间的讨论，继续往下读。</p>
+            </a>
+            <a class="entry-card" href="notes/shared-judgment-over-handoff.html">
+              <span class="entry-meta">Notes 03</span>
+              <strong>最好的设计工程协作，不是传递稿子，而是共享判断</strong>
+              <p>从协作判断与交接边界这篇笔记重新接上上下文。</p>
+            </a>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="page-footer">
+      Ling Du · GitHub Pages 静态站点 · 可本地预览，也可直接托管发布。
+    </footer>
+  </div>
+
+  <script>
+    (function () {
+      var countdown = document.getElementById("countdown");
+      if (!countdown) {
+        return;
+      }
+
+      var seconds = 8;
+      countdown.textContent = String(seconds);
+
+      var timer = window.setInterval(function () {
+        seconds -= 1;
+        if (seconds < 0) {
+          window.clearInterval(timer);
+          return;
+        }
+        countdown.textContent = String(seconds);
+      }, 1000);
+    })();
+  </script>
 </body>
 </html>

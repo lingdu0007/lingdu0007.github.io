@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>最好的设计工程协作，不是传递稿子，而是共享判断 | Ling Du</title>
+  <meta
+    name="description"
+    content="一篇关于设计与前端协作的短文：为什么最好的合作不是交接文件，而是共享判断与取舍标准。"
+  />
+  <meta name="author" content="Ling Du" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <link rel="canonical" href="https://lingdu0007.github.io/notes/shared-judgment-over-handoff.html" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Ling Du" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content="最好的设计工程协作，不是传递稿子，而是共享判断" />
+  <meta
+    property="og:description"
+    content="为什么最好的合作不是交接文件，而是共享判断与取舍标准。"
+  />
+  <meta property="og:url" content="https://lingdu0007.github.io/notes/shared-judgment-over-handoff.html" />
+  <meta property="og:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="最好的设计工程协作，不是传递稿子，而是共享判断" />
+  <meta
+    name="twitter:description"
+    content="为什么最好的合作不是交接文件，而是共享判断与取舍标准。"
+  />
+  <meta name="twitter:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="article.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">L</span>
+        <span class="brand-copy">
+          <strong>Ling Du</strong>
+          <span>Independent builder / design + code</span>
+        </span>
+      </a>
+      <div class="top-status">Writing / Notes</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#capabilities">Capabilities</a>
+        <a href="../index.html#notes">Notes</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="article-hero">
+        <div>
+          <div class="eyebrow">Note 03 / Process</div>
+          <h1>最好的设计工程协作，不是传递稿子，而是共享判断</h1>
+          <p class="article-intro">
+            当设计和实现都围绕同一套判断标准工作时，很多“交接问题”会自然消失。真正有效的协作，核心不是文件，而是共同语言。
+          </p>
+        </div>
+
+        <div class="article-meta">
+          <div>Published / 2026</div>
+          <div>Theme / Collaboration</div>
+          <div>Reading Time / 4 min</div>
+        </div>
+      </section>
+
+      <section class="article-content">
+        <article class="article-body">
+          <p>
+            很多人把设计和前端的合作理解成一个线性流程：设计出稿、标注、交接、开发实现。
+            这套流程当然能工作，但它最容易出现的问题也很明显：稿子在传递，判断却没有传递。
+          </p>
+
+          <p>
+            于是我们经常看到一种熟悉的情况：设计稿看起来很对，实现结果也不能说错，但最终页面就是不像同一件东西。
+            不是谁没认真，而是双方其实没有共享“为什么要这样做”的标准。
+          </p>
+
+          <h2>共享判断比共享文件更重要</h2>
+          <p>
+            如果设计只告诉前端“这里 24px、那里 16px”，前端只能复制结果，却很难延续逻辑。
+            但如果设计同时说明“这里要更轻，因为它不是主要动作”“这里要更稳，因为它承接高风险信息”，
+            那前端在实现和后续扩展时就会更接近原本的意图。
+          </p>
+
+          <p>
+            同样地，如果前端只被当作执行者，设计也会失去很多真实约束的反馈。很多看起来完美的版式，
+            只有进入真实内容、真实断点、真实交互之后，才会暴露出问题。
+          </p>
+
+          <h2>好的合作更像共同编辑</h2>
+          <p>
+            我喜欢把设计与前端的关系理解成“共同编辑一个体验系统”。设计提供方向和秩序，前端把它变成真实可运行的东西，
+            同时反向暴露结构里的脆弱处。两边都在校正，不是谁把稿子丢给谁。
+          </p>
+
+          <ul>
+            <li>先共享优先级，而不是先共享像素。</li>
+            <li>先共享语气和状态层级，再共享组件细节。</li>
+            <li>尽早把真实内容放进页面，而不是只看空模板。</li>
+            <li>让实现过程也参与设计判断，而不是最后才验收。</li>
+          </ul>
+
+          <h2>最有价值的是“同一种眼光”</h2>
+          <p>
+            真正成熟的协作，最后会发展成一种共同眼光。看到一个页面时，大家会同时意识到：
+            这里太满了、这里不够稳、这里该退后、这里还没有形成阅读路径。那时候效率反而最高，
+            因为很多问题不需要靠反复沟通才能被发现。
+          </p>
+
+          <p>
+            所以我越来越不把设计工程协作看成“交接”。更准确的说法是：我们在共同维护一套判断系统，
+            然后让页面只是它的结果。
+          </p>
+        </article>
+
+        <aside>
+          <div class="article-callout">
+            <h3>这篇在说什么</h3>
+            <p>
+              最好的设计与前端合作不是文件传递，而是共享优先级、语气、层级和对结果的判断标准。
+            </p>
+          </div>
+
+          <nav class="article-nav" aria-label="Related notes">
+            <span class="article-nav-label">继续阅读</span>
+            <a class="article-nav-link" href="personal-site-is-not-a-resume.html">
+              <strong>个人站不应该像“简历页面”，也不该像“产品促销页”</strong>
+              <span>Note 01 / Interface</span>
+            </a>
+            <a class="article-nav-link" href="quiet-before-busy.html">
+              <strong>当信息变复杂时，界面最先要做的不是更热闹，而是更安静</strong>
+              <span>Note 02 / Systems</span>
+            </a>
+            <a class="article-nav-link" href="../index.html#notes">
+              <strong>返回首页的 Notes 列表</strong>
+              <span>Back to index</span>
+            </a>
+          </nav>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="article-footer">
+      Ling Du / Writing / Notes
+    </footer>
+  </div>
+</body>
+</html>

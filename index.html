@@ -580,6 +580,7 @@
     }
 
     .note-card {
+      display: block;
       position: relative;
       min-height: 228px;
       transition: transform 180ms ease, border-color 180ms ease;
@@ -600,6 +601,12 @@
       margin-top: 28px;
       font-family: var(--mono);
       color: var(--moss);
+    }
+
+    .note-card:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-color: rgba(160, 102, 66, 0.34);
     }
 
     .about-grid {
@@ -853,6 +860,306 @@
       }
     }
   </style>
+  <style>
+    html {
+      overflow-x: clip;
+    }
+
+    body {
+      background: linear-gradient(180deg, #fcfbf8 0%, var(--paper) 38%, #f2eee6 100%);
+      line-height: 1.48;
+      overflow-x: clip;
+    }
+
+    ::selection {
+      background: rgba(160, 102, 66, 0.16);
+      color: var(--ink);
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid rgba(160, 102, 66, 0.62);
+      outline-offset: 3px;
+    }
+
+    .hero-copy h1,
+    .section-head h2,
+    .about-quote,
+    .contact-copy h2 {
+      text-wrap: balance;
+    }
+
+    .hero-copy p,
+    .section-intro,
+    .work-summary,
+    .capability-card p,
+    .note-card p,
+    .about-copy p,
+    .contact-copy p,
+    .footer-copy,
+    .panel-copy,
+    .panel-list li,
+    .hero-caption div {
+      text-wrap: pretty;
+    }
+
+    .hero-copy h1 {
+      font-size: clamp(4.9rem, 7.9vw, 7rem);
+      max-width: 11ch;
+    }
+
+    .hero-copy > p {
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+
+    .hero-caption {
+      align-items: start;
+    }
+
+    .hero-caption span {
+      color: var(--muted);
+    }
+
+    .hero-caption div {
+      color: var(--ink);
+      font-family: var(--body);
+      letter-spacing: 0;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      max-width: 52ch;
+      text-transform: none;
+    }
+
+    .hero-panel {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+      box-shadow: 0 18px 44px rgba(24, 21, 18, 0.06);
+    }
+
+    .panel-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.94));
+      padding: 26px;
+    }
+
+    .panel-card h2 {
+      font-size: 3rem;
+      line-height: 0.92;
+      max-width: 8.8ch;
+    }
+
+    .panel-copy {
+      line-height: 1.65;
+    }
+
+    .panel-list li {
+      line-height: 1.6;
+    }
+
+    .section-head {
+      align-items: start;
+    }
+
+    .section-head h2 {
+      font-size: clamp(2.55rem, 4vw, 3.25rem);
+    }
+
+    .section-intro {
+      line-height: 1.65;
+    }
+
+    .section-index,
+    .capability-tag,
+    .note-meta {
+      color: var(--moss);
+    }
+
+    .work-row {
+      transition:
+        transform 180ms ease,
+        background-color 180ms ease,
+        border-color 180ms ease;
+    }
+
+    .work-row:hover {
+      transform: translateX(5px);
+      background: linear-gradient(90deg, rgba(160, 102, 66, 0.04), transparent 68%);
+    }
+
+    .work-summary {
+      line-height: 1.65;
+    }
+
+    .work-outcome {
+      font-family: var(--body);
+      text-transform: none;
+      letter-spacing: 0;
+      font-size: 0.92rem;
+    }
+
+    .capability-card {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+    }
+
+    .capability-card p {
+      line-height: 1.65;
+    }
+
+    .note-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 250px;
+      gap: 12px;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+    }
+
+    .note-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(160, 102, 66, 0.28);
+      box-shadow: 0 18px 36px rgba(24, 21, 18, 0.06);
+    }
+
+    .note-card h3 {
+      line-height: 1.08;
+    }
+
+    .note-card p {
+      line-height: 1.65;
+    }
+
+    .note-arrow {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .about-quote {
+      font-size: clamp(2.3rem, 4vw, 3.15rem);
+    }
+
+    .about-copy p {
+      line-height: 1.7;
+    }
+
+    .contact-copy h2 {
+      font-size: clamp(2.55rem, 4.2vw, 3.55rem);
+      max-width: 8.5ch;
+    }
+
+    .contact-copy p {
+      line-height: 1.7;
+    }
+
+    .contact-link {
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .contact-link:hover {
+      transform: translateX(4px);
+      border-bottom-color: rgba(160, 102, 66, 0.22);
+    }
+
+    .footer-copy {
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-copy h1 {
+        font-size: 5.2rem;
+      }
+
+      .panel-card h2 {
+        font-size: 2.6rem;
+      }
+
+      .section-head h2 {
+        font-size: 2.6rem;
+      }
+
+      .work-title-group h3 {
+        font-size: 1.8rem;
+      }
+
+      .about-quote {
+        font-size: 2.4rem;
+      }
+
+      .contact-copy h2 {
+        font-size: 2.8rem;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .page-shell {
+        width: min(calc(100% - 20px), var(--max-width));
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-copy h1 {
+        max-width: none;
+        font-size: 4rem;
+        line-height: 0.95;
+      }
+
+      .hero-copy > p {
+        font-size: 1rem;
+      }
+
+      .hero-caption {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-grid,
+      .capability-grid,
+      .notes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .panel-list li {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .footer {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .footer-anchors {
+        justify-content: flex-start;
+      }
+
+      .panel-card h2 {
+        font-size: 2.15rem;
+      }
+
+      .section-head h2 {
+        font-size: 2.1rem;
+      }
+
+      .work-title-group h3 {
+        font-size: 1.5rem;
+      }
+
+      .capability-card h3,
+      .note-card h3 {
+        font-size: 1.2rem;
+      }
+
+      .about-quote {
+        font-size: 2rem;
+      }
+
+      .contact-copy h2 {
+        font-size: 2.25rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="page-shell">
@@ -861,89 +1168,89 @@
         <span class="brand-mark">L</span>
         <span class="brand-copy">
           <strong>Ling Du</strong>
-          <span>Independent builder / design + code</span>
+          <span>独立设计与前端</span>
         </span>
       </a>
       <div class="top-status">开放合作</div>
       <nav class="site-nav" aria-label="Primary">
-        <a href="#work">Work</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#notes">Notes</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#work">精选项目</a>
+        <a href="#capabilities">能力</a>
+        <a href="#notes">笔记</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
         <div class="hero-copy reveal">
-          <div class="kicker">Independent builder for product, design and code</div>
-          <h1>把设计、代码和产品感 <span>连成一个系统。</span></h1>
+          <div class="kicker">个人网站重做 / editorial minimal</div>
+          <h1>把设计、代码与产品感<br /><span>收束成一个系统。</span></h1>
           <p>
-            我偏爱那种不吵闹、但一进入就知道是谁做的界面。它们清楚、克制、有节奏，
-            能把复杂的信息变成可以被理解、被决策、被记住的体验。
+            我偏爱那种一眼安静、但越看越有层次的界面。它们不急着展示全部内容，
+            而是先把结构、节奏和判断讲清楚。
           </p>
 
           <div class="hero-meta-row" aria-label="Quick facts">
-            <div class="meta-chip">当前关注 / AI 工作流</div>
-            <div class="meta-chip">所在地 / 待填写</div>
-            <div class="meta-chip">合作方向 / 产品设计 · 前端工程 · AI 工作流 · 品牌叙事</div>
+            <div class="meta-chip">当前重点 / 个人站首页与 Notes 阅读体验</div>
+            <div class="meta-chip">方法 / 黑白纸色 + 少量铜色强调</div>
+            <div class="meta-chip">合作方向 / 产品设计 · 前端工程 · AI 工作流</div>
           </div>
 
           <div class="hero-actions">
-            <a class="button-link primary" href="#work">看精选项目</a>
-            <a class="button-link secondary" href="#contact">开始交流</a>
+            <a class="button-link primary" href="#work">查看精选项目</a>
+            <a class="button-link secondary" href="#contact">联系我</a>
           </div>
 
           <div class="hero-caption">
-            <span>当前重点</span>
+            <span>正在迭代</span>
             <div>
-              正在把个人主页做成一个更像作品索引而不是履历表的地方。
-              它应该既能让第一次访问的人快速理解你，也能让懂行的人看到你的判断力。
+              这版首页更像作品索引，而不是简历页。它要让第一次访问的人快速理解你，
+              也让认真阅读的人愿意继续往下看。
             </div>
           </div>
         </div>
 
         <aside class="hero-panel reveal">
-          <div class="panel-label">精选预览 / 2026</div>
+          <div class="panel-label">网站快照 / 2026</div>
           <div class="panel-card">
             <div class="panel-head">
-              <strong>重点案例</strong>
-              <span>01 / Flow Atlas</span>
+              <strong>重点策略</strong>
+              <span>01 / 首页结构</span>
             </div>
-            <h2>让活跃系统在高密度状态里保持安静。</h2>
+            <h2>把信息结构排成一个能呼吸的页面。</h2>
             <p class="panel-copy">
-              一个给 AI 工作流和复杂产品做“降噪”的实践：让信息结构更冷静，让动作更明确，
-              让界面在复杂场景里仍然保有秩序感。
+              重点不是把所有内容都铺开，而是按同一套判断逻辑排布项目、写作与联系入口，
+              让站点显得成熟、可信、可继续生长。
             </p>
 
             <div class="panel-grid">
               <div class="panel-cell">
-                <span class="panel-label">角色</span>
-                <strong>端到端</strong>
+                <span class="panel-label">节奏</span>
+                <strong>更清楚</strong>
               </div>
               <div class="panel-cell">
-                <span class="panel-label">焦点</span>
-                <strong>设计系统</strong>
+                <span class="panel-label">风格</span>
+                <strong>更克制</strong>
               </div>
               <div class="panel-cell">
-                <span class="panel-label">结果</span>
-                <strong>阅读路径</strong>
+                <span class="panel-label">阅读</span>
+                <strong>更顺</strong>
               </div>
             </div>
 
             <ul class="panel-list">
               <li>
-                <strong>2026</strong>
-                <span>把 onboarding 变成一个有节奏的阅读路径，而不是一堆说明和按钮。</span>
+                <strong>01</strong>
+                <span>首页先给出判断，再给出作品，而不是把所有信息堆到首屏。</span>
               </li>
               <li>
-                <strong>UI</strong>
-                <span>用杂志感的排版语言处理技术信息，让严肃内容也有辨识度。</span>
+                <strong>02</strong>
+                <span>Notes 进入正式阅读层级，不再只是把卡片文字放大。</span>
               </li>
               <li>
-                <strong>Build</strong>
-                <span>设计和前端同时推进，避免“概念很好看、实现像另一件事”。</span>
+                <strong>03</strong>
+                <span>联系区保留占位，但排版要像已上线的页面组件。</span>
               </li>
             </ul>
           </div>
@@ -953,9 +1260,9 @@
       <section id="work">
         <div class="section-head reveal">
           <div class="section-index">01</div>
-          <h2>Selected Work</h2>
+          <h2>精选项目</h2>
           <p class="section-intro">
-            不是把所有项目都堆上来，而是挑出最能说明方法、取舍与审美判断的几件事。
+            我只保留最能说明判断、取舍与实现能力的三件事。
           </p>
         </div>
 
@@ -967,9 +1274,9 @@
               <div class="work-role">产品设计 / 前端 / AI 工作流</div>
             </div>
             <p class="work-summary">
-              为 AI 工作流设计一个更安静、更可信的操作界面。重点不是“炫技感”，而是让用户在高密度状态下依然能快速判断下一步。
+              为 AI 工作流设计更安静的操作界面。重点不是炫技感，而是让用户在高密度状态下先看懂，再行动。
             </p>
-            <div class="work-outcome">把第一次理解成本从“需要解释”压缩到“打开就能进入状态”</div>
+            <div class="work-outcome">理解路径比动效更重要，动作路径比装饰更重要</div>
           </article>
 
           <article class="work-row reveal">
@@ -979,9 +1286,9 @@
               <div class="work-role">品牌系统 / 内容结构</div>
             </div>
             <p class="work-summary">
-              为一个内容与产品交叉的个人品牌重做信息结构：把写作、产品实验和合作入口重新编排成更像 editorial index 的浏览体验。
+              重做内容与产品交叉的个人品牌信息结构，把写作、实验和合作入口编排成一个可持续的阅读索引。
             </p>
-            <div class="work-outcome">让作品、观点和联系入口不再互相抢戏，而是相互抬高</div>
+            <div class="work-outcome">让写作不再是附属内容，而是站点的一部分</div>
           </article>
 
           <article class="work-row reveal">
@@ -991,9 +1298,9 @@
               <div class="work-role">界面方向 / 设计工程</div>
             </div>
             <p class="work-summary">
-              一个面向复杂输入场景的 prompt workspace 原型。通过分栏、层级和轻动效，减少用户在“想法很多”时的界面摩擦。
+              面向复杂输入和多轮决策的 workspace 原型。通过分栏、层级和轻反馈，减少“想法很多”时的界面摩擦。
             </p>
-            <div class="work-outcome">用更克制的结构承接复杂内容，而不是靠组件数量制造存在感</div>
+            <div class="work-outcome">在复杂输入里保持秩序感，而不是靠组件数量制造存在感</div>
           </article>
         </div>
       </section>
@@ -1001,9 +1308,9 @@
       <section id="capabilities">
         <div class="section-head reveal">
           <div class="section-index">02</div>
-          <h2>Capabilities</h2>
+          <h2>能力</h2>
           <p class="section-intro">
-            我最擅长的是跨边界工作：既能把方向定清楚，也能把它真正做出来。
+            我擅长把抽象方向拆成可执行的结构，并把它真正做出来。
           </p>
         </div>
 
@@ -1014,7 +1321,7 @@
               <h3>把抽象方向变成清楚的页面结构</h3>
             </div>
             <p>
-              擅长为 0 到 1 的产品整理首屏、叙事顺序、信息密度和关键动作，让产品意图一眼可读。
+              擅长为 0 到 1 的产品整理首屏、叙事顺序、信息密度和关键动作，让意图一眼可读。
             </p>
           </article>
 
@@ -1024,7 +1331,7 @@
               <h3>让设计不是静态图，而是可用界面</h3>
             </div>
             <p>
-              我会直接把版式、细节和动效落进代码里，避免设计与实现出现“像两个不同的人做的”断层。
+              我会把版式、细节和动效直接落进代码里，避免设计与实现出现“像两个不同的人做的”断层。
             </p>
           </article>
 
@@ -1053,53 +1360,53 @@
       <section id="notes">
         <div class="section-head reveal">
           <div class="section-index">03</div>
-          <h2>Writing / Notes</h2>
+          <h2>写作 / 笔记</h2>
           <p class="section-intro">
             我常写一些偏方法论和判断题的短文，通常和产品、界面、系统感有关。
           </p>
         </div>
 
         <div class="notes-grid">
-          <article class="note-card reveal">
-            <span class="note-meta">Note 01 / Interface</span>
-            <h3>个人站不应该像“简历页面”，也不该像“产品促销页”</h3>
+          <a class="note-card reveal" href="notes/personal-site-is-not-a-resume.html">
+            <span class="note-meta">笔记 01 / 结构</span>
+            <h3>个人站不该像简历页，也不该像促销页</h3>
             <p>
               它更像一个经过编辑的索引：你是谁、做过什么、怎么看问题，以及别人为什么愿意继续点下去。
             </p>
-            <div class="note-arrow">阅读全文 →</div>
-          </article>
+            <div class="note-arrow">继续阅读 →</div>
+          </a>
 
-          <article class="note-card reveal">
-            <span class="note-meta">Note 02 / Systems</span>
-            <h3>当信息变复杂时，界面最先要做的不是更热闹，而是更安静</h3>
+          <a class="note-card reveal" href="notes/quiet-before-busy.html">
+            <span class="note-meta">笔记 02 / 系统</span>
+            <h3>信息一复杂，界面就该先安静下来</h3>
             <p>
               真正可靠的体验往往来自层级、留白、命名和动作克制，而不是多一层效果或多一个模块。
             </p>
-            <div class="note-arrow">阅读全文 →</div>
-          </article>
+            <div class="note-arrow">继续阅读 →</div>
+          </a>
 
-          <article class="note-card reveal">
-            <span class="note-meta">Note 03 / Process</span>
-            <h3>最好的设计工程协作，不是传递稿子，而是共享判断</h3>
+          <a class="note-card reveal" href="notes/shared-judgment-over-handoff.html">
+            <span class="note-meta">笔记 03 / 协作</span>
+            <h3>最好的设计工程协作，是共享判断</h3>
             <p>
               当设计和实现都服务同一个目标时，很多本来看似“妥协”的事情会自然消失。
             </p>
-            <div class="note-arrow">阅读全文 →</div>
-          </article>
+            <div class="note-arrow">继续阅读 →</div>
+          </a>
         </div>
       </section>
 
       <section id="about">
         <div class="section-head reveal">
           <div class="section-index">04</div>
-          <h2>About</h2>
+          <h2>关于</h2>
           <p class="section-intro">
             我喜欢做那些介于设计、代码和产品之间的工作，因为那里最容易真正塑造体验。
           </p>
         </div>
 
         <div class="about-grid">
-          <div class="about-quote reveal">我在意的不是“做得像不像趋势”，而是它到底像不像你。</div>
+          <div class="about-quote reveal">我更在意的是，它是不是像一个已经被认真维护过的站点。</div>
           <div class="about-copy reveal">
             <p>
               我通常从结构开始：先判断页面到底要让人理解什么、感受到什么，再决定该如何说、如何排、如何动。
@@ -1118,35 +1425,37 @@
       <section id="contact">
         <div class="contact-grid reveal">
           <div class="contact-copy">
-            <div class="eyebrow">05 / Contact</div>
+            <div class="eyebrow">05 / 联系</div>
             <h2>如果你想做一件清楚、克制、但有记忆点的东西。</h2>
             <p>
-              可以从一个简单的 brief 开始。我尤其适合参与首页方向、设计系统基调、个人品牌站点、
+              可以从一个简单的 brief 开始。我尤其适合参与首页方向、设计系统基调、个人品牌站点，
               以及 AI 产品与工作流工具的界面设计。
+            </p>
+            <p>
+              这些联系方式先保留占位，方便后续直接替换，不会影响现阶段浏览。
             </p>
           </div>
 
           <div class="contact-stack" aria-label="Contact channels">
-            <!-- TODO: 上线前把下面的占位项替换成真实联系信息与外链。 -->
             <div class="contact-link">
-              <strong>待填写邮箱</strong>
-              <span>Email</span>
+              <strong>邮箱</strong>
+              <span>待补充</span>
             </div>
             <div class="contact-link">
-              <strong>待填写用户名</strong>
-              <span>GitHub</span>
+              <strong>GitHub</strong>
+              <span>待补充</span>
             </div>
             <div class="contact-link">
-              <strong>待填写用户名</strong>
-              <span>X</span>
+              <strong>X</strong>
+              <span>待补充</span>
             </div>
             <div class="contact-link">
-              <strong>待填写账号</strong>
-              <span>小红书</span>
+              <strong>小红书</strong>
+              <span>待补充</span>
             </div>
             <div class="contact-link">
-              <strong>待填写账号</strong>
-              <span>即刻</span>
+              <strong>即刻</strong>
+              <span>待补充</span>
             </div>
           </div>
         </div>
@@ -1155,12 +1464,12 @@
 
     <footer class="footer">
       <p class="footer-copy">
-        Ling Du / Independent builder for product, design and code.
+        Ling Du / 个人网站与写作索引。
       </p>
       <div class="footer-anchors">
-        <a href="#work">Work</a>
-        <a href="#notes">Notes</a>
-        <a href="#contact">Contact</a>
+        <a href="#work">精选项目</a>
+        <a href="#notes">笔记</a>
+        <a href="#contact">联系</a>
       </div>
     </footer>
   </div>
