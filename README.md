@@ -11,6 +11,9 @@
 - `site.webmanifest`: 基础 PWA/安装描述
 - `assets/favicon.svg`: 站点图标
 - `assets/og-image.png`: 分享卡片预览图
+- `notes-md/*.md`: Notes 的 Markdown 源文件
+- `templates/note-shell.html`: 由当前 open-design 风格提炼出的文章模板
+- `scripts/build-notes.mjs`: Markdown 生成 HTML 的脚本
 - `.github/workflows/pages.yml`: GitHub Pages 自动部署工作流
 
 ## 上线前你只需要替换的内容
@@ -28,10 +31,54 @@
 在当前目录运行：
 
 ```bash
+node scripts/build-notes.mjs
 python3 -m http.server 4174
 ```
 
 然后访问 `http://127.0.0.1:4174/`。
+
+## Notes 写作流
+
+现在 Notes 文章支持：
+
+1. 在 `notes-md/` 下写 Markdown 源文件
+2. 运行：
+
+```bash
+node scripts/build-notes.mjs
+```
+
+3. 脚本会自动：
+
+- 生成 `notes/*.html`
+- 更新首页 `Notes` 卡片
+- 更新 `404.html` 里的继续阅读卡片
+- 更新 `sitemap.xml`
+
+### Frontmatter 字段
+
+每篇 Markdown 顶部需要：
+
+```md
+---
+slug: your-note-slug
+title: 文章标题
+description: 用于 SEO 和分享卡片
+date: 2026
+theme: Information Architecture
+readingTime: 3 min
+eyebrow: Note 01 / Interface
+intro: 文章首段引导
+callout: 右侧摘要卡片文案
+cardEyebrow: 笔记 01 / 结构
+cardTitle: 首页卡片标题
+cardSummary: 首页卡片摘要
+notFoundSummary: 404 页面里的引导摘要
+related:
+  - another-slug
+  - one-more-slug
+---
+```
 
 ## GitHub Pages 部署
 

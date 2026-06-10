@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} | Ling Du</title>
+  <meta
+    name="description"
+    content="{{description}}"
+  />
+  <meta name="author" content="Ling Du" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#f7f7f4" />
+  <link rel="canonical" href="{{canonicalUrl}}" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Ling Du" />
+  <meta property="og:locale" content="zh_CN" />
+  <meta property="og:title" content="{{title}}" />
+  <meta
+    property="og:description"
+    content="{{description}}"
+  />
+  <meta property="og:url" content="{{canonicalUrl}}" />
+  <meta property="og:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{title}}" />
+  <meta
+    name="twitter:description"
+    content="{{description}}"
+  />
+  <meta name="twitter:image" content="https://lingdu0007.github.io/assets/og-image.png" />
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="article.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark">L</span>
+        <span class="brand-copy">
+          <strong>Ling Du</strong>
+          <span>Independent builder / design + code</span>
+        </span>
+      </a>
+      <div class="top-status">Writing / Notes</div>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="../index.html#work">Work</a>
+        <a href="../index.html#capabilities">Capabilities</a>
+        <a href="../index.html#notes">Notes</a>
+        <a href="../index.html#about">About</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="article-hero">
+        <div>
+          <div class="eyebrow">{{eyebrow}}</div>
+          <h1>{{title}}</h1>
+          <p class="article-intro">
+            {{intro}}
+          </p>
+        </div>
+
+        <div class="article-meta">
+          <div>Published / {{date}}</div>
+          <div>Theme / {{theme}}</div>
+          <div>Reading Time / {{readingTime}}</div>
+        </div>
+      </section>
+
+      <section class="article-content">
+        <article class="article-body">
+{{bodyHtml}}
+        </article>
+
+        <aside>
+          <div class="article-callout">
+            <h3>这篇在说什么</h3>
+            <p>
+              {{callout}}
+            </p>
+          </div>
+
+          <nav class="article-nav" aria-label="Related notes">
+            <span class="article-nav-label">继续阅读</span>
+{{relatedLinks}}
+            <a class="article-nav-link" href="../index.html#notes">
+              <strong>返回首页的 Notes 列表</strong>
+              <span>Back to index</span>
+            </a>
+          </nav>
+        </aside>
+      </section>
+    </main>
+
+    <footer class="article-footer">
+      Ling Du / Writing / Notes
+    </footer>
+  </div>
+</body>
+</html>

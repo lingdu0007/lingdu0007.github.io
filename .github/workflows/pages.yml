@@ -26,6 +26,14 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Build notes from Markdown
+        run: node scripts/build-notes.mjs
+
       - name: Prepare static files
         run: |
           mkdir -p dist
@@ -34,6 +42,9 @@ jobs:
             --exclude '.github/' \
             --exclude 'dist/' \
             --exclude 'README.md' \
+            --exclude 'notes-md/' \
+            --exclude 'templates/' \
+            --exclude 'scripts/' \
             --exclude 'tools/' \
             ./ dist/
 
